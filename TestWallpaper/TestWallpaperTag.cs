@@ -10,8 +10,8 @@ namespace TestWallpaper
         {
             var selector = new WallpaperSelector();
 
-            var natureWallpaper = new Wallpaper("Лес", "\"D:\\Picture\\Nature\\1.jpg\"", new List<string> { "Природа", "Зелень" });
-            var sportsWallpaper = new Wallpaper("Футбол", "\"D:\\Picture\\Footbool\\1.jpg\"", new List<string> { "Спорт", "Действие" });
+            var natureWallpaper = new Wallpaper("Лес", "\"C:\\Users\\fodex\\source\\repos\\WallpaperEngine\\Picture\\Nature\\1.jpg\"", new List<string> { "Природа", "Зелень" });
+            var sportsWallpaper = new Wallpaper("Футбол", "\"C:\\Users\\fodex\\source\\repos\\WallpaperEngine\\Picture\\Footbool\\1.jpg\"", new List<string> { "Спорт", "Действие" });
 
             selector.AddWallpaper(natureWallpaper);
             selector.AddWallpaper(sportsWallpaper);
@@ -20,17 +20,17 @@ namespace TestWallpaper
 
             Assert.AreEqual(1, result.Count);
             Assert.AreEqual("Лес", result[0].Name);
-            Assert.AreEqual("\"D:\\Picture\\Nature\\1.jpg\"", result[0].ImagePath);
+            Assert.AreEqual("\"C:\\Users\\fodex\\source\\repos\\WallpaperEngine\\Picture\\Nature\\1.jpg\"", result[0].ImagePath);
         }
 
         [TestMethod]
         public void Test_GetWallpapersByTag_NoResults_WithImagePaths()
         {
             var selector = new WallpaperSelector();
-            var natureWallpaper = new Wallpaper("Горы", "\"D:\\Picture\\Nature\\1.jpg\"", new List<string> { "Природа" });
+            var natureWallpaper = new Wallpaper("Горы", "\"C:\\Users\\fodex\\source\\repos\\WallpaperEngine\\Picture\\Nature\\1.jpg\"", new List<string> { "Природа" });
             selector.AddWallpaper(natureWallpaper);
 
-            var result = selector.GetWallpapersByTag("Лес");
+            var result = selector.GetWallpapersByTag("Спорт");
 
             Assert.AreEqual(0, result.Count);
         }
