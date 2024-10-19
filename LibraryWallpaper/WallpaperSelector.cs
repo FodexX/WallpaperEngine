@@ -8,6 +8,8 @@ namespace LibraryWallpaper
 {
     public class WallpaperSelector
     {
+        /// REVIEW. a.boikov. 2024/10/19. поле класса нужно сделать private.
+        ///Все управление через методы, чтобы защитить от несанкционированного использования объекта
         public List<Wallpaper> Wallpapers { get; set; }
 
         public WallpaperSelector()
