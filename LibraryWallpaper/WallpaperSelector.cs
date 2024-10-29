@@ -10,7 +10,7 @@ namespace LibraryWallpaper
     {
         /// REVIEW. a.boikov. 2024/10/19. поле класса нужно сделать private.
         ///Все управление через методы, чтобы защитить от несанкционированного использования объекта
-        public List<Wallpaper> Wallpapers { get; set; }
+        private List<Wallpaper> Wallpapers { get; set; }
 
         public WallpaperSelector()
         {
@@ -25,6 +25,10 @@ namespace LibraryWallpaper
         public List<Wallpaper> GetWallpapersByTag(string tag)
         {
             return Wallpapers.FindAll(w => w.Tags.Contains(tag));
+        }
+        public List<Wallpaper> GetWallpapersByTags(List<string> tags)
+        {
+            return Wallpapers.Where(w => w.Tags.Any(t => tags.Contains(t))).ToList();
         }
     }
 }
