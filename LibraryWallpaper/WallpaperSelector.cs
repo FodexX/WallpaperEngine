@@ -2,7 +2,7 @@
 {
     public class WallpaperSelector
     {
-        private List<Wallpaper> Wallpapers { get; set; }
+        private List<Wallpaper> Wallpapers { get; }
 
         public WallpaperSelector()
         {
