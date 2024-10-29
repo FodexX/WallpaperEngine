@@ -55,7 +55,7 @@ namespace TestWallpaper
         }
 
         [TestMethod]
-        public void Test_GetWallpapersByMultipleTags()
+        public void Test_GetWallpapersByMultipleTags_SingleImageWithMultipleTags()
         {
             var selector = new WallpaperSelector();
 
@@ -75,6 +75,7 @@ namespace TestWallpaper
             Assert.AreEqual("Горы и Лес", result[0].Name);
             Assert.AreEqual("Picture/Nature/2.jpg", result[0].ImagePath);
         }
+
 
     }
 }
