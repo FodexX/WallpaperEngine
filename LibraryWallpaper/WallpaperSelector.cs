@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LibraryWallpaper
+﻿namespace LibraryWallpaper
 {
     public class WallpaperSelector
     {
-        /// REVIEW. a.boikov. 2024/10/19. поле класса нужно сделать private.
-        ///Все управление через методы, чтобы защитить от несанкционированного использования объекта
         private List<Wallpaper> Wallpapers { get; set; }
 
         public WallpaperSelector()
