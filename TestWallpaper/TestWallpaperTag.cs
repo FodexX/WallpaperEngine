@@ -55,7 +55,7 @@ namespace TestWallpaper
         }
 
         [TestMethod]
-        public void Test_GetWallpapersByMultipleTags_SingleImageWithMultipleTags()
+        public void Test_GetWallpapersByMultipleTags()
         {
             var selector = new WallpaperSelector();
 
