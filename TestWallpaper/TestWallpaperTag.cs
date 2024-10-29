@@ -9,11 +9,11 @@ namespace TestWallpaper
     public class TestWallpaperTag
     {
         [DataTestMethod]
-        [DataRow("Природа", 2, "Лес", "Picture/Nature/1.jpg")]
-        [DataRow("Спорт", 1, "Футбол", "Picture/Football/1.jpg")]
-        [DataRow("Действие", 1, "Футбол", "Picture/Football/1.jpg")]
-        [DataRow("Горы", 1, "Горы", "Picture/Nature/2.jpg")]
-        public void Test_GetWallpapersByTag_WithImagePaths(string tag, int expectedCount, string expectedName, string expectedImagePath)
+        [DataRow(new string[] { "Природа" }, 2, "Лес", "Picture/Nature/1.jpg")]
+        [DataRow(new string[] { "Спорт" }, 1, "Футбол", "Picture/Football/1.jpg")]
+        [DataRow(new string[] { "Действие" }, 1, "Футбол", "Picture/Football/1.jpg")]
+        [DataRow(new string[] { "Горы" }, 1, "Горы", "Picture/Nature/2.jpg")]
+        public void Test_GetWallpapersByTags_WithImagePaths(string[] tags, int expectedCount, string expectedName, string expectedImagePath)
         {
             var selector = new WallpaperSelector();
 
@@ -25,7 +25,7 @@ namespace TestWallpaper
             selector.AddWallpaper(sportsWallpaper);
             selector.AddWallpaper(mountWallpaper);
 
-            var result = selector.GetWallpapersByTag(tag);
+            var result = selector.GetWallpapersByTags(new List<string>(tags));
 
             Assert.AreEqual(expectedCount, result.Count);
 
@@ -47,11 +47,34 @@ namespace TestWallpaper
             selector.AddWallpaper(validWallpaper);
             selector.AddWallpaper(invalidWallpaper);
 
-            foreach (var wallpaper in selector.GetWallpapersByTag("Природа"))
+            foreach (var wallpaper in selector.GetWallpapersByTags(new List<string> { "Природа" }))
             {
                 bool fileExists = File.Exists(wallpaper.ImagePath);
                 Assert.IsTrue(true, $"Файл {wallpaper.ImagePath} существует.");
             }
         }
+
+        [TestMethod]
+        public void Test_GetWallpapersByMultipleTags_SingleImageWithMultipleTags()
+        {
+            var selector = new WallpaperSelector();
+
+            var natureWallpaper = new Wallpaper("Лес", "Picture/Nature/1.jpg", new List<string> { "Природа", "Зелень" });
+            var multiTaggedWallpaper = new Wallpaper("Горы и Лес", "Picture/Nature/2.jpg", new List<string> { "Природа", "Горы" });
+            var sportsWallpaper = new Wallpaper("Футбол", "Picture/Football/1.jpg", new List<string> { "Спорт" });
+
+            selector.AddWallpaper(natureWallpaper);
+            selector.AddWallpaper(multiTaggedWallpaper);
+            selector.AddWallpaper(sportsWallpaper);
+
+            var searchTags = new List<string> { "Природа", "Горы" };
+            var result = selector.GetWallpapersByTags(searchTags);
+
+            Assert.AreEqual(1, result.Count, "Ожидается 1 результат.");
+
+            Assert.AreEqual("Горы и Лес", result[0].Name);
+            Assert.AreEqual("Picture/Nature/2.jpg", result[0].ImagePath);
+        }
+
     }
 }

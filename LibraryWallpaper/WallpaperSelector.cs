@@ -14,10 +14,6 @@
             Wallpapers.Add(wallpaper);
         }
 
-        public List<Wallpaper> GetWallpapersByTag(string tag)
-        {
-            return Wallpapers.FindAll(w => w.Tags.Contains(tag));
-        }
         public List<Wallpaper> GetWallpapersByTags(List<string> tags)
         {
             /// REVIEW. a.boikov. 2024/10/29. 0. Разобраться с тем, как это работает
