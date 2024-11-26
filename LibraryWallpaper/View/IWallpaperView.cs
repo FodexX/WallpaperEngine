@@ -10,7 +10,8 @@ namespace LibraryWallpaper.View
 
     public interface IWallpaperView
     {
-        void LoadWallpaper(Wallpaper wallpaper);
+        void LoadWallpapers(List<Wallpaper> wallpaper);
+        void LoadWallpapers(Wallpaper wallpaper);
 
         event WallpaperHandler WallpaperSelected;
     }

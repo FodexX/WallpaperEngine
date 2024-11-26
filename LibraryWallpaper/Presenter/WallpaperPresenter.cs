@@ -16,6 +16,7 @@ namespace LibraryWallpaper.Presenter
             view_.WallpaperSelected += View__WallpaperSelected;
         }
 
+
         private void View__WallpaperSelected(Wallpaper wallpaper)
         {
             var wallpapers = model_.GetWallpaper();
@@ -26,7 +27,7 @@ namespace LibraryWallpaper.Presenter
             var wallpapers = obj.GetWallpapersByTags(new List<string>()); // или передавайте актуальные теги
             foreach (var wallpaper in wallpapers)
             {
-                view_.LoadWallpaper(wallpaper);
+                view_.LoadWallpapers(wallpaper);
             }
         }
 

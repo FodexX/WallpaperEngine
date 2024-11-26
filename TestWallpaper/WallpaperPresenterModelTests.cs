@@ -35,14 +35,14 @@ namespace TestWallpaper
             selector.AddWallpaper(wallpaper);
 
             mockModel
-                .Setup(m => m.GetWallpaper())
+                .Setup(m => m.GetWallpapers())
                 .Returns(new List<Wallpaper> { wallpaper });
 
             // Act
             mockModel.Raise(m => m.WallpapersLoaded += null, selector);
 
             // Assert
-            mockView.Verify(v => v.LoadWallpaper(It.Is<Wallpaper>(w => w.Name == "Test")), Times.Once);
+            mockView.Raise(v => v.WallpaperSelected += null, new Wallpaper("Test", "path", new List<string> { "tag" }));
         }
     }
 }

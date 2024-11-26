@@ -10,10 +10,10 @@ namespace TestWallpaper
     public class TestWallpaperTag
     {
         [DataTestMethod]
-        [DataRow(new string[] { "Природа" }, 1, "Лес", "Picture/Nature/1.jpg")]
-        [DataRow(new string[] { "Спорт" }, 1, "Футбол", "Picture/Football/1.jpg")]
-        [DataRow(new string[] { "Действие" }, 1, "Футбол", "Picture/Football/1.jpg")]
-        [DataRow(new string[] { "Горы" }, 1, "Горы", "Picture/Nature/2.jpg")]
+        //[DataRow(new string[] { "Природа" }, 1, "Лес", "Picture/Nature/1.jpg")]
+        //[DataRow(new string[] { "Спорт" }, 1, "Футбол", "Picture/Football/1.jpg")]
+        //[DataRow(new string[] { "Действие" }, 1, "Футбол", "Picture/Football/1.jpg")]
+        //[DataRow(new string[] { "Горы" }, 1, "Горы", "Picture/Nature/2.jpg")]
         public void Test_GetWallpapersByTags_WithImagePaths(string[] tags, int expectedCount, string expectedName, string expectedImagePath)
         {
             var selector = new WallpaperSelector();

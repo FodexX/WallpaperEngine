@@ -38,7 +38,7 @@ namespace TestWallpaper
             mockView.Raise(v => v.WallpaperSelected += null, wallpaper);
 
             // Act & Assert
-            mockModel.Verify(m => m.GetWallpaper(), Times.Once());
+            mockModel.Verify(m => m.GetWallpapers(), Times.Once());
         }
     }
 }

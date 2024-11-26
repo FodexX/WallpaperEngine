@@ -38,6 +38,11 @@ namespace LibraryWallpaper.Model
             WallpaperLoaded?.Invoke();
         }
 
+        public List<Wallpaper> GetWallpapers()
+        {
+            return wallpapers_;
+        }
+
         public event Action WallpaperLoaded;
     }
 }
