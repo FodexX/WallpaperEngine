@@ -1,34 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryWallpaper.Model
 {
     public class WallpapersModel : IWallpaperModel
     {
-        private List<Wallpaper> wallpapers_ = new List<Wallpaper>();
-
-        public WallpapersModel() 
+        private List<Wallpaper> wallpapers_ = new List<Wallpaper>
         {
-            wallpapers_.Add(new Wallpaper
+            new Wallpaper("Cпортик", "example/path/to/image.jpg", new List<string> { "Футбол", "Мяч" })
+        };
+
+        event Action<WallpaperSelector> IWallpaperModel.WallpapersLoaded
+        {
+            add
             {
-                Name = "Cпортик",
-                ImagePath = " ",
-                Tags = new List<string> { "Футбол", "Мяч" },
-            });
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
         }
 
-
-        public List<Wallpaper> GetWallpapers()
+        public List<Wallpaper> GetWallpaper()
         {
             return wallpapers_;
         }
 
         public int CountWallpaper()
-        { 
-            return wallpapers_.Count; 
+        {
+            return wallpapers_.Count;
         }
 
         public void NotifyClientsUpdated()
@@ -37,6 +39,5 @@ namespace LibraryWallpaper.Model
         }
 
         public event Action WallpaperLoaded;
-
     }
 }

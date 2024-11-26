@@ -12,6 +12,6 @@ namespace LibraryWallpaper.Model
         
         int CountWallpaper();
 
-        event Action<Wallpaper> WallpaperLoaded;
+        event Action<WallpaperSelector> WallpapersLoaded;
     }
 }

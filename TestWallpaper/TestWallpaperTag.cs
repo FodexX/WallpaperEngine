@@ -1,7 +1,8 @@
 ﻿using LibraryWallpaper;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-using System.IO;
+using LibraryWallpaper.Model;
+using LibraryWallpaper.Presenter;
+using LibraryWallpaper.View;
+using Moq;
 
 namespace TestWallpaper
 {
@@ -75,7 +76,72 @@ namespace TestWallpaper
             Assert.AreEqual("Горы и Лес", result[0].Name);
             Assert.AreEqual("Picture/Nature/2.jpg", result[0].ImagePath);
         }
+    }
+
+    [TestClass]
+    public class WallpaperPresenterModelTests
+    {
+        private Mock<IWallpaperModel> mockModel;
+        private Mock<IWallpaperView> mockView;
+        private WallpaperPresenter presenter;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            mockModel = new Mock<IWallpaperModel>();
+            mockView = new Mock<IWallpaperView>();
+            presenter = new WallpaperPresenter(mockModel.Object, mockView.Object);
+        }
+
+        [TestMethod]
+        public void Presenter_ShouldReactToModelEvent()
+        {
+            // Arrange
+            var wallpaper = new Wallpaper("Test", "path/to/image", new List<string> { "Tag1", "Tag2" });
+            var selector = new WallpaperSelector();
+            selector.AddWallpaper(wallpaper);
+
+            mockModel
+                .Setup(m => m.GetWallpaper())
+                .Returns(new List<Wallpaper> { wallpaper });
+
+            // Act
+            mockModel.Raise(m => m.WallpapersLoaded += null, selector);
+
+            // Assert
+            mockView.Verify(v => v.LoadWallpaper(It.Is<Wallpaper>(w => w.Name == "Test")), Times.Once);
+        }
+    }
 
 
+    [TestClass]
+    public class WallpaperPresenterViewTests
+    {
+        private Mock<IWallpaperModel> mockModel;
+        private Mock<IWallpaperView> mockView;
+        private WallpaperPresenter presenter;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            mockModel = new Mock<IWallpaperModel>();
+            mockView = new Mock<IWallpaperView>();
+            presenter = new WallpaperPresenter(mockModel.Object, mockView.Object);
+        }
+
+       [TestMethod]
+public void Presenter_ShouldUpdateModelOnViewSelection()
+{
+    // Arrange
+    var mockModel = new Mock<IWallpaperModel>();
+    var mockView = new Mock<IWallpaperView>();
+    var presenter = new WallpaperPresenter(mockModel.Object, mockView.Object);
+
+    var wallpaper = new Wallpaper("Test", "path", new List<string> { "tag" });
+    mockView.Raise(v => v.WallpaperSelected += null, wallpaper);
+
+    // Act & Assert
+    mockModel.Verify(m => m.GetWallpaper(), Times.Once());
+}
     }
 }
