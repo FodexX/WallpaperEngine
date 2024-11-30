@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWallpaper", "TestWallpaper\TestWallpaper.csproj", "{BABA20E3-E0D8-41B9-A876-27728311EBB7}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryWallpaper", "LibraryWallpaper\LibraryWallpaper.csproj", "{8913ADF8-8901-4CB4-B8AC-7848489E2FB9}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Picture", "Picture", "{B7211A90-C3C4-4B4A-8EBE-CA54058A7936}"
 	ProjectSection(SolutionItems) = preProject
 		Picture\Footbool\1.jpg = Picture\Footbool\1.jpg
 		Picture\Nature\1.jpg = Picture\Nature\1.jpg
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WallpaperView", "WallpaperView\WallpaperView.csproj", "{9BE1585C-8841-478E-9366-7968497975A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryEngine", "LibraryEngine\LibraryEngine.csproj", "{B2BF6E80-5ACE-476D-B164-2DE69D938F48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{F183E808-2FF9-4693-8345-29882549E414}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +21,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BABA20E3-E0D8-41B9-A876-27728311EBB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BABA20E3-E0D8-41B9-A876-27728311EBB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BABA20E3-E0D8-41B9-A876-27728311EBB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BABA20E3-E0D8-41B9-A876-27728311EBB7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8913ADF8-8901-4CB4-B8AC-7848489E2FB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8913ADF8-8901-4CB4-B8AC-7848489E2FB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8913ADF8-8901-4CB4-B8AC-7848489E2FB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8913ADF8-8901-4CB4-B8AC-7848489E2FB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BE1585C-8841-478E-9366-7968497975A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BE1585C-8841-478E-9366-7968497975A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BE1585C-8841-478E-9366-7968497975A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BE1585C-8841-478E-9366-7968497975A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2BF6E80-5ACE-476D-B164-2DE69D938F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2BF6E80-5ACE-476D-B164-2DE69D938F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2BF6E80-5ACE-476D-B164-2DE69D938F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2BF6E80-5ACE-476D-B164-2DE69D938F48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F183E808-2FF9-4693-8345-29882549E414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F183E808-2FF9-4693-8345-29882549E414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F183E808-2FF9-4693-8345-29882549E414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F183E808-2FF9-4693-8345-29882549E414}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
