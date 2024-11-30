@@ -7,6 +7,7 @@
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+
         /// <summary>
         ///  Clean up any resources being used.
         /// </summary>
@@ -36,43 +37,43 @@
             // 
             // wallpapersListBox
             // 
-            wallpapersListBox.FormattingEnabled = true;
             wallpapersListBox.ItemHeight = 15;
             wallpapersListBox.Location = new Point(12, 12);
             wallpapersListBox.Name = "wallpapersListBox";
-            wallpapersListBox.Size = new Size(206, 229);
+            wallpapersListBox.Size = new Size(200, 394);
             wallpapersListBox.TabIndex = 0;
+            wallpapersListBox.SelectedIndexChanged += WallpapersListBox_SelectedIndexChanged;
             // 
             // wallpaperPictureBox
             // 
-            wallpaperPictureBox.Location = new Point(260, 12);
+            wallpaperPictureBox.Location = new Point(220, 12);
             wallpaperPictureBox.Name = "wallpaperPictureBox";
-            wallpaperPictureBox.Size = new Size(494, 318);
+            wallpaperPictureBox.Size = new Size(300, 300);
+            wallpaperPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             wallpaperPictureBox.TabIndex = 1;
             wallpaperPictureBox.TabStop = false;
             // 
             // selectButton
             // 
-            selectButton.Location = new Point(143, 256);
+            selectButton.Location = new Point(220, 320);
             selectButton.Name = "selectButton";
-            selectButton.Size = new Size(75, 23);
+            selectButton.Size = new Size(100, 30);
             selectButton.TabIndex = 2;
-            selectButton.Text = "button1";
-            selectButton.UseVisualStyleBackColor = true;
+            selectButton.Text = "Выбрать";
+            selectButton.Click += this.selectButton_Click;
             // 
-            // Form1
+            // WallpaperView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(selectButton);
-            Controls.Add(wallpaperPictureBox);
+            ClientSize = new Size(550, 450);
             Controls.Add(wallpapersListBox);
-            Name = "Form1";
-            Text = "Form1";
+            Controls.Add(wallpaperPictureBox);
+            Controls.Add(selectButton);
+            Name = "WallpaperView";
+            Text = "Wallpaper View";
             ((System.ComponentModel.ISupportInitialize)wallpaperPictureBox).EndInit();
             ResumeLayout(false);
         }
+
 
         #endregion
 

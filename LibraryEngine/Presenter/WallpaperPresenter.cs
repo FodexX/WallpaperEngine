@@ -19,7 +19,7 @@ namespace LibraryEngine.Presenter
 
         private void View__WallpaperSelected(Wallpaper wallpaper)
         {
-            var wallpapers = model_.GetWallpaper();
+            var wallpapers = model_.GetWallpapers();
         }
 
         private void Model__WallpapersLoaded(WallpaperSelector obj)

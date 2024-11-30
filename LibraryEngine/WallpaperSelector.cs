@@ -1,23 +1,25 @@
-﻿    namespace LibraryEngine
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace LibraryEngine
+{
+    public class WallpaperSelector
     {
-        public class WallpaperSelector
+        private List<Wallpaper> Wallpapers { get; }
+
+        public WallpaperSelector()
         {
-            private List<Wallpaper> Wallpapers { get; }
+            Wallpapers = new List<Wallpaper>();
+        }
 
-            public WallpaperSelector()
-            {
-                Wallpapers = new List<Wallpaper>();
-            }
+        public void AddWallpaper(Wallpaper wallpaper)
+        {
+            Wallpapers.Add(wallpaper);
+        }
 
-            public void AddWallpaper(Wallpaper wallpaper)
-            {
-                Wallpapers.Add(wallpaper);
-            }
-
-            public List<Wallpaper> GetWallpapersByTags(List<string> tags)
-            {
-                return Wallpapers.Where(w => tags.All(tag => w.Tags.Contains(tag))).ToList();
-            }
-
+        public List<Wallpaper> GetWallpapersByTags(List<string> tags)
+        {
+            return Wallpapers.Where(w => tags.All(tag => w.Tags.Contains(tag))).ToList();
         }
     }
+}

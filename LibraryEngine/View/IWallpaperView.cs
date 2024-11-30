@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryEngine.View
 {
@@ -10,9 +7,8 @@ namespace LibraryEngine.View
 
     public interface IWallpaperView
     {
-        void LoadWallpapers(List<Wallpaper> wallpaper);
+        void LoadWallpapers(List<Wallpaper> wallpapers);
         void LoadWallpapers(Wallpaper wallpaper);
-
         event WallpaperHandler WallpaperSelected;
     }
 }

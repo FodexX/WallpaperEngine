@@ -1,21 +1,24 @@
+using System;
+using System.Windows.Forms;
 using LibraryEngine.Model;
-using LibraryEngine.Presenter;
 using LibraryEngine.View;
+using LibraryEngine.Presenter;
 
 namespace WallpaperView
 {
-    internal static class Program
+    static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new WallpaperView());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            IWallpaperModel model = new WallpapersModel();
+            IWallpaperView view = new WallpaperView();
+            WallpaperPresenter presenter = new WallpaperPresenter(model, view);
+
+            Application.Run((Form)view);
         }
     }
 }
